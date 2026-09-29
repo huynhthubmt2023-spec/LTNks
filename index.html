@@ -3,711 +3,337 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learning - Tutoring - Nurturing — Giúp Con 8-15 Tuổi Tự Tin Nói Tiếng Anh Theo Mẫu Có Sẵn</title>
+    <title>Khảo Sát Level Phù Hợp Cho Con — Learning - Tutoring - Nurturing</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-    <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandBlue: '#0055A6',
+                        brandLime: '#CEFF8A',
+                        brandDark: '#173433'
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        /* Multi-Palette Variables & Mobile Font Rendering Fixes */
-        :root {
-            --color-fresh-lime: #DDF3A3;
-            --color-azure-blue: #0055A6;
-            --color-chartreuse-pastel: #CEFF8A;
-            --color-deep-teal: #173433;
-            --color-teal-dark: #0F2625;
-            --color-[#CEFF8A]: #CEFF8A;
-        }
-        body {
-            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            -webkit-text-size-adjust: 100%;
-            -moz-text-size-adjust: 100%;
-            text-size-adjust: 100%;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
-            overflow-x: hidden;
-        }
-        @keyframes pulse-subtle {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-        }
-        .animate-pulse-subtle { animation: pulse-subtle 3s infinite ease-in-out; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .option-card { transition: all 0.2s ease-in-out; }
+        .option-card:hover { border-color: #0055A6; background-color: #f0f7ff; transform: translateY(-1px); }
+        .option-card.selected { border-color: #0055A6; background-color: #ebf5ff; ring: 2px; ring-color: #0055A6; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased selection:bg-[#CEFF8A] selection:text-[#173433]">
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between">
 
-    <!-- HEADER / NAVIGATION -->
-    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
-        <div class="max-w-6xl mx-auto px-4 py-2.5 sm:py-3 flex items-center justify-between">
-            <div class="flex items-center gap-2 sm:gap-3">
-                <img src="logo.png" alt="Learning - Tutoring - Nurturing" class="h-9 sm:h-12 w-auto object-contain">
+    <!-- HEADER -->
+    <header class="bg-white border-b border-slate-200 py-3 px-4 shadow-sm sticky top-0 z-40">
+        <div class="max-w-5xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="logo.png" onerror="this.src='https://huynhthubmt2023-spec.github.io/LTN/logo.png'" alt="LTN Logo" class="h-9 w-auto object-contain">
                 <div>
-                    <span class="font-extrabold text-xs sm:text-lg tracking-tight text-[#0055A6] block leading-tight">Learning - Tutoring - Nurturing</span>
+                    <span class="font-extrabold text-sm sm:text-base text-brandBlue block leading-tight">Learning - Tutoring - Nurturing</span>
                 </div>
             </div>
-            <div class="flex items-center gap-1.5 sm:gap-2">
-                <a href="https://zalo.me/g/pajxunxu4bsamvzmowso" target="_blank" class="hidden xs:flex items-center gap-1 text-[11px] sm:text-xs font-extrabold text-[#0055A6] bg-[#F4FCDA] border border-[#c7e87d] px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-full hover:bg-[#CEFF8A] transition-colors whitespace-nowrap">
-                    <span>💬 Nhóm Zalo</span>
-                </a>
-                <a href="#pricing" class="bg-[#0055A6] hover:bg-[#173433] text-[#CEFF8A] font-extrabold px-3 sm:px-5 py-2 sm:py-2 rounded-full shadow-md hover:shadow-lg transition-all text-xs sm:text-sm flex items-center gap-1 whitespace-nowrap">
-                    <span>Nhận Tài Liệu</span>
-                    <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                </a>
-            </div>
+            <span class="text-xs font-bold text-brandBlue bg-blue-50 border border-blue-200 px-3 py-1 rounded-full">Khảo sát 2 phút</span>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="relative bg-gradient-to-b from-[#eef9d4] via-[#F4FCDA]/60 to-slate-50 pt-6 sm:pt-10 pb-10 sm:pb-16 overflow-hidden">
-        <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
-            <!-- Main Headline -->
-            <h1 class="text-2xl sm:text-4xl font-black text-slate-900 mb-3 leading-snug">
-                Nếu Con Đã Học Tiếng Anh Nhiều Năm,
-            </h1>
+    <!-- MAIN CONTAINER -->
+    <main class="max-w-5xl mx-auto px-4 py-6 sm:py-10 flex-grow w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
             
-            <div class="inline-block bg-[#CEFF8A] border border-[#b8e86b] text-[#173433] px-4 py-2.5 sm:px-6 sm:py-3 rounded-2xl sm:rounded-full text-base sm:text-2xl font-black mb-4 sm:mb-6 shadow-sm max-w-full leading-snug">
-                Đừng Để Con Chỉ Dừng Ở “Biết Tiếng Anh”.
-            </div>
-
-            <!-- Blue Banner with 2 Lines -->
-            <div class="bg-[#0055A6] text-[#CEFF8A] px-4 py-4 sm:px-10 sm:py-5 rounded-2xl sm:rounded-3xl shadow-xl max-w-3xl mx-auto my-4 sm:my-6 text-center">
-                <div class="font-black text-xs sm:text-lg tracking-wider uppercase mb-1">
-                    HÃY GIÚP CON TIẾN TỚI:
-                </div>
-                <div class="font-black text-sm sm:text-2xl text-[#CEFF8A] leading-snug">
-                    SỬ DỤNG TIẾNG ANH – TƯ DUY BẰNG TIẾNG ANH – TỰ TIN TRÌNH BÀY
-                </div>
-            </div>
-
-            <!-- Subheadline -->
-            <p class="text-base sm:text-2xl text-slate-900 max-w-3xl mx-auto mb-6 sm:mb-8 font-extrabold uppercase tracking-wide leading-snug sm:leading-relaxed">
-                KẾT QUẢ CỦA HỌC SINH SAU 7 NGÀY ĐÁNH THỨC SỰ TỰ TIN NÓI TIẾNG ANH
-            </p>
-
-            <!-- Hero Video / Image Mockup -->
-            <div class="relative max-w-3xl mx-auto mb-8 sm:mb-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-[#173433] group">
-                <div class="aspect-video flex flex-col items-center justify-center bg-gradient-to-br from-[#0055A6] via-[#173433] to-[#0F2625] p-4 sm:p-6 text-white text-center relative">
-                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#CEFF8A] text-[#173433] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform cursor-pointer mb-3">
-                        <svg class="w-8 h-8 sm:w-10 sm:h-10 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                    </div>
-                    <span class="font-black text-base sm:text-xl text-[#CEFF8A]">Xem Video Học Sinh 8-15 Tuổi Luyện Nói Theo Mẫu</span>
-                    <span class="text-xs text-slate-200 mt-1">Phương pháp Pattern Speaking — Phản xạ tự nhiên không cần dịch trong đầu</span>
-                </div>
-            </div>
-
-            <!-- Quick CTA Buttons -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-xl mx-auto">
-                <a href="https://zalo.me/g/pajxunxu4bsamvzmowso" target="_blank" class="w-full sm:w-auto bg-[#0068FF] hover:bg-[#0052cc] text-white font-black text-sm sm:text-base px-6 py-3.5 sm:py-4 rounded-xl shadow-lg hover:shadow-xl transition-all text-center flex items-center justify-center gap-2">
-                    <span class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white text-[#0068FF] font-black text-xs flex items-center justify-center">Z</span>
-                    <span>💬 Vào Nhóm Zalo Free</span>
-                </a>
-                <a href="#pricing" class="w-full sm:w-auto bg-[#0055A6] hover:bg-[#173433] text-[#CEFF8A] font-black text-sm sm:text-base px-6 py-3.5 sm:py-4 rounded-xl shadow-lg hover:shadow-xl transition-all text-center animate-pulse-subtle">
-                    🚀 Đăng Ký Gói Từ 99K
-                </a>
-                <a href="#roadmap" class="w-full sm:w-auto bg-white hover:bg-slate-100 text-[#0055A6] font-bold text-xs sm:text-sm px-5 py-3.5 sm:py-4 rounded-xl shadow border border-slate-200 text-center">
-                    📖 Lộ Trình 30 Ngày
-                </a>
-            </div>
-
-            <!-- Trust Badges (Optimized for Mobile Screens) -->
-            <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-6 mt-6 sm:mt-8 text-xs font-bold text-slate-700">
-                <span class="bg-white/90 px-3 py-1.5 rounded-full border border-slate-200 shadow-sm flex items-center gap-1"><b class="text-[#0055A6]">✓</b> Học sinh 8 - 15 tuổi</span>
-                <span class="bg-white/90 px-3 py-1.5 rounded-full border border-slate-200 shadow-sm flex items-center gap-1"><b class="text-[#0055A6]">✓</b> Có tài liệu mẫu để thực hành</span>
-                <span class="bg-white/90 px-3 py-1.5 rounded-full border border-slate-200 shadow-sm flex items-center gap-1"><b class="text-[#0055A6]">✓</b> Có giáo viên LTN đồng hành</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- INSIGHT & TRANSFORMATION SECTION -->
-    <section class="py-16 bg-white border-y border-slate-200">
-        <div class="max-w-5xl mx-auto px-4">
-            <div class="text-center max-w-4xl mx-auto mb-10">
-                <div class="inline-block bg-[#CEFF8A] border-2 border-[#b8e86b] text-[#173433] px-6 py-3.5 sm:px-8 sm:py-4 rounded-2xl sm:rounded-full font-black text-base sm:text-2xl shadow-md max-w-full leading-snug">
-                    Con đã học tiếng Anh nhiều năm nhưng tại sao vẫn chưa tự tin giao tiếp?
-                </div>
-            </div>
-
-            <!-- 4 REASON CARDS -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                <!-- Card 1 -->
-                <div class="bg-[#F4FCDA] border border-[#c7e87d] rounded-2xl p-6 flex gap-4 shadow-sm">
-                    <div class="w-12 h-12 rounded-xl bg-[#173433] text-[#CEFF8A] flex-shrink-0 flex items-center justify-center font-black text-xl shadow">1</div>
-                    <div>
-                        <h3 class="font-extrabold text-lg text-slate-900 mb-1">Ngại Nói, Sợ Phát Âm Sai</h3>
-                        <p class="text-sm text-slate-700 leading-relaxed">
-                            Con sợ phát âm chưa chuẩn hoặc nói sai ngữ pháp, rụt rè thà im lặng chứ không dám tự tin mở miệng giao tiếp.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="bg-[#F4FCDA] border border-[#c7e87d] rounded-2xl p-6 flex gap-4 shadow-sm">
-                    <div class="w-12 h-12 rounded-xl bg-[#173433] text-[#CEFF8A] flex-shrink-0 flex items-center justify-center font-black text-xl shadow">2</div>
-                    <div>
-                        <h3 class="font-extrabold text-lg text-slate-900 mb-1">Thiếu Phản Xạ Ngôn Ngữ</h3>
-                        <p class="text-sm text-slate-700 leading-relaxed">
-                            Mất thời gian dịch từ tiếng Việt sang tiếng Anh trước khi nói. Điều này khiến con chậm phản xạ trong giao tiếp.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="bg-[#F4FCDA] border border-[#c7e87d] rounded-2xl p-6 flex gap-4 shadow-sm">
-                    <div class="w-12 h-12 rounded-xl bg-[#173433] text-[#CEFF8A] flex-shrink-0 flex items-center justify-center font-black text-xl shadow">3</div>
-                    <div>
-                        <h3 class="font-extrabold text-lg text-slate-900 mb-1">Chủ Yếu Học Ngữ Pháp</h3>
-                        <p class="text-sm text-slate-700 leading-relaxed">
-                            Tập trung làm bài tập ngữ pháp trên giấy mà bỏ qua kỹ năng giao tiếp thực tế và kịch bản phản xạ đời sống.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="bg-[#F4FCDA] border border-[#c7e87d] rounded-2xl p-6 flex gap-4 shadow-sm">
-                    <div class="w-12 h-12 rounded-xl bg-[#173433] text-[#CEFF8A] flex-shrink-0 flex items-center justify-center font-black text-xl shadow">4</div>
-                    <div>
-                        <h3 class="font-extrabold text-lg text-slate-900 mb-1">Ba Mẹ Khó Đồng Hành Với Con</h3>
-                        <p class="text-sm text-slate-700 leading-relaxed">
-                            Ba mẹ bận rộn hoặc không giỏi tiếng Anh sẽ gặp khó khăn khi hướng dẫn cho con. Con cần có giáo viên đồng hành, nhắc nhở hàng ngày.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Insight Highlight Quote Box -->
-            <div class="mt-10 max-w-3xl mx-auto bg-gradient-to-r from-[#173433] via-[#0055A6] to-[#173433] text-white p-6 sm:p-8 rounded-2xl shadow-xl text-center relative overflow-hidden">
-                <div class="text-5xl text-[#CEFF8A] opacity-40 absolute top-2 left-4 font-serif">“</div>
-                <p class="text-lg sm:text-xl font-medium italic relative z-10 leading-relaxed text-[#CEFF8A]">
-                    “Con tôi 8-15 tuổi đã có từ vựng cơ bản, nhưng cháu rất ngập ngừng khi nói. Cháu cần bộ mẫu câu có sẵn để mở ra là nói được ngay, và cần có giáo viên đồng hành hỗ trợ sửa lỗi để con tự tin hơn.”
+            <!-- LEFT BANNER SIDEBAR -->
+            <div class="lg:col-span-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <span class="text-xs font-black text-brandBlue uppercase tracking-wider block mb-1">5 CÂU HỎI · KẾT QUẢ NGAY</span>
+                <h1 class="text-2xl sm:text-3xl font-black text-slate-900 leading-tight mb-4">
+                    KHẢO SÁT LEVEL PHÙ HỢP CHO CON
+                </h1>
+                <p class="text-slate-600 text-sm mb-6 leading-relaxed font-medium">
+                    Khám phá Level tài liệu phù hợp với khả năng nói tiếng Anh hiện tại của con.
                 </p>
-                <span class="block text-xs uppercase tracking-widest text-slate-200 font-bold mt-3">— Mong muốn của hàng ngàn Phụ Huynh Việt Nam</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- SOLUTION & FEATURES SECTION (UPDATED CARDS 1 & 4) -->
-    <section class="py-16 bg-slate-50">
-        <div class="max-w-5xl mx-auto px-4">
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="text-[#0055A6] font-extrabold uppercase tracking-wider text-xs block mb-2">Learning - Tutoring - Nurturing</span>
-                <div class="inline-block bg-[#CEFF8A] border border-[#b8e86b] text-[#173433] px-5 py-2.5 sm:px-8 sm:py-3 rounded-2xl sm:rounded-full text-base sm:text-2xl font-black mb-3 shadow-sm max-w-full leading-snug">
-                    Có Tài Liệu Mẫu Để Thực Hành + Giáo Viên LTN Đồng Hành
-                </div>
-                <p class="text-slate-600 text-base">
-                    Giúp con bật phản xạ nói tiếng Anh tự nhiên trong 30 ngày mà không áp lực
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Card 1 -->
-                <div class="bg-white p-6 rounded-2xl border border-[#c7e87d] shadow-sm text-center">
-                    <div class="w-14 h-14 bg-[#CEFF8A] text-[#173433] rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl font-black shadow-sm">📜</div>
-                    <h3 class="font-bold text-slate-900 mb-2">Chuẩn Hóa Kịch Bản Nói</h3>
-                    <p class="text-xs text-slate-600 leading-relaxed">Chuẩn hóa kịch bản nói theo từng chủ đề. Con chỉ cần mở ra là có thể luyện tập được ngay.</p>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="bg-white p-6 rounded-2xl border border-[#c7e87d] shadow-sm text-center">
-                    <div class="w-14 h-14 bg-[#CEFF8A] text-[#173433] rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl font-black shadow-sm">💬</div>
-                    <h3 class="font-bold text-slate-900 mb-2">Q&A</h3>
-                    <p class="text-xs text-slate-600 leading-relaxed">Hỗ trợ giải đáp thắc mắc bài học, giúp con tháo gỡ khó khăn kịp thời và tự tin tiếp thu bài mới.</p>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="bg-white p-6 rounded-2xl border border-[#c7e87d] shadow-sm text-center">
-                    <div class="w-14 h-14 bg-[#CEFF8A] text-[#173433] rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl font-black shadow-sm">🔄</div>
-                    <h3 class="font-bold text-slate-900 mb-2">Cập Nhật Bài Học Thường Xuyên</h3>
-                    <p class="text-xs text-slate-600 leading-relaxed">Liên tục cập nhật chủ đề và bài học mới phong phú, giúp con mở rộng phản xạ và duy trì thói quen luyện tập.</p>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="bg-white p-6 rounded-2xl border border-[#0055A6] shadow-sm text-center">
-                    <div class="w-14 h-14 bg-[#0055A6] text-[#CEFF8A] rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl font-black shadow-sm">👨‍🏫</div>
-                    <h3 class="font-bold text-slate-900 mb-2">Giáo Viên Đồng Hành</h3>
-                    <p class="text-xs text-slate-600 leading-relaxed">Đội ngũ LTN theo sát, chấm sửa bài nói 1:1 giúp con cải thiện phát âm, tự tin giao tiếp, thu hút người nghe một cách rõ rệt.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ROADMAP / CURRICULUM PREVIEW FOR 8-15 YEARS OLD -->
-    <section id="roadmap" class="py-16 bg-white border-t border-slate-200">
-        <div class="max-w-5xl mx-auto px-4">
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <div class="inline-block bg-[#CEFF8A] border border-[#b8e86b] text-[#173433] px-5 py-2.5 sm:px-8 sm:py-3 rounded-2xl sm:rounded-full text-base sm:text-2xl font-black mb-3 shadow-sm max-w-full leading-snug">
-                    Lộ Trình 30 Ngày Speaking Theo Level
-                </div>
-                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-                    Lộ trình 30 ngày giúp học sinh từng bước hình thành phản xạ, phát triển ý và tự tin trình bày quan điểm bằng tiếng Anh theo từng level.
-                </p>
-            </div>
-
-            <!-- 3 CARDS MATCHING SCREENSHOT DESIGN -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 
-                <!-- CARD 1: TUẦN 1 -->
-                <div class="bg-[#F4FCDA] border border-[#c7e87d] rounded-3xl p-6 shadow-sm flex flex-col justify-between">
-                    <div>
-                        <!-- Header with Pill Badge & Title -->
-                        <div class="flex items-center gap-3 mb-6 pb-4 border-b border-[#c7e87d]/60">
-                            <span class="w-16 h-10 bg-[#0055A6] text-white rounded-full flex items-center justify-center font-extrabold text-xs tracking-wider shadow-sm flex-shrink-0">
-                                TUẦN 1
-                            </span>
-                            <h3 class="font-extrabold text-lg sm:text-xl text-slate-900 leading-snug">
-                                Khơi Mở
-                            </h3>
-                        </div>
-
-                        <!-- Card Content -->
-                        <div class="text-xs sm:text-sm text-slate-700">
-                            <div class="bg-white/80 p-4 rounded-2xl border border-[#c7e87d]">
-                                <p class="text-slate-800 font-medium leading-relaxed">Nói về bản thân, con người, sở thích, trải nghiệm và những điều gần gũi.</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 mb-6 flex items-start gap-3">
+                    <svg class="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                    <p class="text-xs text-emerald-800 font-medium leading-relaxed">
+                        Hãy chọn phương án <strong class="font-bold">gần nhất với khả năng con đang thể hiện</strong>, không chọn theo trình độ con "nếu đạt được" ở khối lớp hiện tại.
+                    </p>
                 </div>
 
-                <!-- CARD 2: TUẦN 2 -->
-                <div class="bg-[#F4FCDA] border border-[#c7e87d] rounded-3xl p-6 shadow-sm flex flex-col justify-between">
-                    <div>
-                        <!-- Header with Pill Badge & Title -->
-                        <div class="flex items-center gap-3 mb-6 pb-4 border-b border-[#c7e87d]/60">
-                            <span class="w-16 h-10 bg-[#0055A6] text-white rounded-full flex items-center justify-center font-extrabold text-xs tracking-wider shadow-sm flex-shrink-0">
-                                TUẦN 2
-                            </span>
-                            <h3 class="font-extrabold text-lg sm:text-xl text-slate-900 leading-snug">
-                                Phát Triển
-                            </h3>
-                        </div>
-
-                        <!-- Card Content -->
-                        <div class="text-xs sm:text-sm text-slate-700">
-                            <div class="bg-white/80 p-4 rounded-2xl border border-[#c7e87d]">
-                                <p class="text-slate-800 font-medium leading-relaxed">Giải thích suy nghĩ, nêu lý do, đưa ví dụ và sắp xếp ý.</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="flex flex-wrap gap-2 text-xs font-bold text-slate-500">
+                    <span class="bg-slate-100 px-2.5 py-1 rounded-md">⏱️ Khoảng 2 phút</span>
+                    <span class="bg-slate-100 px-2.5 py-1 rounded-md">🔒 Không cần đăng nhập</span>
+                    <span class="bg-slate-100 px-2.5 py-1 rounded-md">⚡ Kết quả tức thì</span>
                 </div>
-
-                <!-- CARD 3: TUẦN 3 & 4 -->
-                <div class="bg-[#173433] text-white border border-[#173433] rounded-3xl p-6 shadow-xl flex flex-col justify-between">
-                    <div>
-                        <!-- Header with Pill Badge & Title -->
-                        <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-700">
-                            <span class="px-3 h-10 bg-[#CEFF8A] text-[#173433] rounded-full flex items-center justify-center font-black text-xs tracking-wider shadow-sm flex-shrink-0 whitespace-nowrap">
-                                TUẦN 3 & 4
-                            </span>
-                            <h3 class="font-extrabold text-lg sm:text-xl text-[#CEFF8A] leading-snug">
-                                Nâng Cao
-                            </h3>
-                        </div>
-
-                        <!-- Card Content -->
-                        <div class="text-xs sm:text-sm text-slate-200">
-                            <div class="bg-[#0F2625] p-4 rounded-2xl border border-slate-700">
-                                <p class="text-slate-100 font-medium leading-relaxed">Phân tích, so sánh, thể hiện quan điểm và đề xuất giải pháp.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- OFFER & PRICING TIERS SECTION (DEEP TEAL & AZURE BLUE ACCENTS) -->
-    <section id="pricing" class="py-16 bg-[#173433] text-white relative">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center max-w-3xl mx-auto mb-14">
-                <div class="inline-block bg-[#CEFF8A] text-[#173433] text-xs sm:text-sm font-black px-4 py-1.5 sm:px-6 sm:py-2 rounded-2xl sm:rounded-full uppercase tracking-wider shadow-sm mb-3">
-                    Ưu Đãi Chỉ Có Trong Tuần Này
-                </div>
-                <h2 class="text-3xl sm:text-5xl font-black mt-1 mb-4 text-white">
-                    Chọn Gói Đồng Hành Phù Hợp Cho Con
-                </h2>
-                <p class="text-slate-200 text-base">
-                    Đầu tư nhỏ cho con tự tin nói tiếng Anh trôi chảy - Tài liệu được cập nhật thường xuyên.
-                </p>
             </div>
 
-            <!-- Pricing Cards Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+            <!-- RIGHT QUIZ CARD -->
+            <div class="lg:col-span-8 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-md relative min-h-[480px] flex flex-col justify-between">
+                
+                <!-- PROGRESS BAR -->
+                <div>
+                    <div class="flex justify-between items-center mb-2">
+                        <span id="step-indicator" class="text-xs font-black text-brandBlue uppercase">Câu 1/5</span>
+                        <button onclick="resetQuiz()" class="text-xs font-bold text-slate-400 hover:text-slate-600 transition-colors">Làm lại</button>
+                    </div>
+                    <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden mb-6">
+                        <div id="progress-bar" class="bg-brandBlue h-full transition-all duration-300" style="width: 20%;"></div>
+                    </div>
+                </div>
 
-                <!-- GÓI 1 CARD -->
-                <div class="bg-[#0F2625]/80 border border-slate-700 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#CEFF8A] transition-all">
-                    <div>
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="bg-slate-700 text-slate-300 text-xs font-bold px-3 py-1 rounded-full uppercase">Gói 1</span>
-                            <span class="text-xs text-slate-300">Tự Luyện</span>
+                <!-- QUESTION CONTENT CONTAINER -->
+                <div id="quiz-box" class="flex-grow">
+                    <!-- Dynamic Question Rendered via JS -->
+                </div>
+
+                <!-- FORM LEAD CONTAINER -->
+                <div id="lead-box" class="hidden flex-grow flex flex-col justify-center py-4">
+                    <div class="text-center mb-6">
+                        <div class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 text-brandBlue rounded-full mb-3 shadow-inner">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Bộ Mẫu Câu Tự Luyện Shadowing</h3>
-                        <p class="text-xs text-slate-300 mb-6">Dành cho con tự giác học, ngân sách tiết kiệm.</p>
+                        <h2 class="text-xl sm:text-2xl font-black text-slate-900 mb-2">Hoàn Thành Khảo Sát!</h2>
+                        <p class="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
+                            Nhập thông tin bên dưới để nhận <strong>Báo Cáo Chẩn Đoán Level & Đề Xuất Lộ Trình Phù Hợp</strong> cho con.
+                        </p>
+                    </div>
+
+                    <form id="lead-form" onsubmit="submitForm(event)" class="max-w-md mx-auto w-full space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Họ tên Phụ huynh / Bé *</label>
+                            <input type="text" id="parent-name" required placeholder="Ví dụ: Mẹ Thu / Bé An" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brandBlue focus:ring-2 focus:ring-blue-200 outline-none text-sm transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Số điện thoại Zalo nhận báo cáo *</label>
+                            <input type="tel" id="parent-phone" required pattern="[0-9]{9,11}" placeholder="Ví dụ: 0988123456" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brandBlue focus:ring-2 focus:ring-blue-200 outline-none text-sm transition-all">
+                        </div>
                         
-                        <div class="mb-6 bg-slate-900/80 p-4 rounded-2xl border border-slate-700/80 shadow-inner">
-                            <div class="text-4xl sm:text-5xl font-black text-[#CEFF8A] tracking-tight mb-2">99.000đ</div>
-                            <div class="text-sm sm:text-base text-slate-300 flex items-center gap-1.5">
-                                <span>Giá gốc:</span>
-                                <span class="line-through font-bold text-slate-300 decoration-red-500 decoration-2 text-base sm:text-lg">299.000đ</span>
-                            </div>
-                        </div>
-
-                        <ul class="text-xs text-slate-200 space-y-3 mb-8 border-t border-slate-700/60 pt-6">
-                            <li class="flex items-start gap-2.5">
-                                <span class="text-[#CEFF8A] font-bold">✓</span>
-                                <span><b>30 bài Speaking mẫu có sẵn</b> cho bé 8–15 tuổi</span>
-                            </li>
-                            <li class="flex items-start gap-2.5">
-                                <span class="text-[#CEFF8A] font-bold">✓</span>
-                                <span>Mẫu câu kịch bản phản xạ tình huống</span>
-                            </li>
-                            <li class="flex items-start gap-2.5">
-                                <span class="text-[#CEFF8A] font-bold">✓</span>
-                                <span>Audio MP3 nghe luyện giọng chuẩn</span>
-                            </li>
-                            <li class="flex items-start gap-2.5">
-                                <span class="text-[#CEFF8A] font-bold">✓</span>
-                                <span>Bài tập tự luyện phản xạ mỗi ngày</span>
-                            </li>
-                            <li class="flex items-start gap-2.5">
-                                <span class="text-[#CEFF8A] font-bold">✓</span>
-                                <span>Bonus 01: Speaking Challenge Tracker</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <button onclick="openModal('GÓI 1 - BỘ MẪU CÂU TỰ LUYỆN SHADOWING (99K)')" class="w-full bg-slate-700 hover:bg-slate-600 text-white font-bold py-3.5 rounded-xl transition-colors text-sm">
-                        Đăng Ký Gói 99K
-                    </button>
+                        <button type="submit" class="w-full bg-brandBlue hover:bg-slate-900 text-white font-black py-4 px-6 rounded-xl shadow-xl transition-all text-sm flex items-center justify-center gap-2">
+                            <span>XEM KẾT QUẢ LEVEL CỦA CON NGAY</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </button>
+                    </form>
                 </div>
 
-                <!-- GÓI 2 CARD -->
-                <div class="bg-[#0F2625]/80 border border-slate-700 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#CEFF8A] transition-all">
-                    <div>
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="bg-slate-700 text-slate-300 text-xs font-bold px-3 py-1 rounded-full uppercase">Gói 2</span>
-                            <span class="text-xs text-slate-300">14 Ngày Thói Quen</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Challenge 14 Ngày</h3>
-                        <p class="text-xs text-slate-300 mb-6">Mỗi ngày làm video 1 phút luyện nói tiếng Anh đều đặn.</p>
-                        
-                        <div class="mb-6 bg-slate-900/80 p-4 rounded-2xl border border-slate-700/80 shadow-inner">
-                            <div class="text-4xl sm:text-5xl font-black text-[#CEFF8A] tracking-tight mb-2">299.000đ</div>
-                            <div class="text-sm sm:text-base text-slate-300 flex items-center gap-1.5">
-                                <span>Giá gốc:</span>
-                                <span class="line-through font-bold text-slate-300 decoration-red-500 decoration-2 text-base sm:text-lg">699.000đ</span>
-                            </div>
-                        </div>
-
-                        <ul class="text-xs text-slate-200 space-y-3 mb-8 border-t border-slate-700/60 pt-6">
-                            <li class="flex items-start gap-2.5">
-                                <span class="text-[#CEFF8A] font-bold">✓</span>
-                                <span><b>Toàn bộ tài liệu Gói 1</b> – 30 bài Speaking mẫu cho bé 8–15 tuổi</span>
-                            </li>
-                            <li class="flex items-start gap-2.5">
-                                <span class="text-[#CEFF8A] font-bold">✓</span>
-                                <span><b>Challenge 14 ngày</b> – mỗi ngày luyện nói một chút, tạo thói quen đều đặn</span>
-                            </li>
-                            <li class="flex items-start gap-2.5">
-                                <span class="text-[#CEFF8A] font-bold">✓</span>
-                                <span>Nhóm cộng đồng cùng luyện tập – có bạn cùng học, cùng thực hành và tạo động lực</span>
-                            </li>
-                            <li class="flex items-start gap-2.5">
-                                <span class="text-[#CEFF8A] font-bold">✓</span>
-                                <span>Zoom Q&A – gặp giáo viên, giải đáp thắc mắc và tháo gỡ khó khăn khi luyện nói</span>
-                            </li>
-                            <li class="flex items-start gap-2.5">
-                                <span class="text-[#CEFF8A] font-bold">✓</span>
-                                <span>Speaking Challenge Tracker – theo dõi tiến độ luyện tập trong 14 ngày</span>
-                            </li>
-                            <li class="flex items-start gap-2.5">
-                                <span class="text-[#CEFF8A] font-bold">✓</span>
-                                <span>Bonus: Bộ "100 câu cứu nguy khi Speaking"</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <button onclick="openModal('GÓI 2 - CHALLENGE 14 NGÀY (299K)')" class="w-full bg-slate-700 hover:bg-slate-600 text-white font-bold py-3.5 rounded-xl transition-colors text-sm">
-                        🔥 Đăng Ký Gói 14 Ngày – 299K
+                <!-- NAVIGATION BUTTONS -->
+                <div id="nav-buttons" class="flex items-center justify-between mt-6 pt-4 border-t border-slate-100">
+                    <button id="prev-btn" onclick="prevQuestion()" class="px-5 py-2.5 rounded-xl border border-slate-300 text-xs font-bold text-slate-600 hover:bg-slate-50 transition-colors hidden">
+                        ← Quay lại
                     </button>
-                </div>
-
-                <!-- GÓI 3 CARD (BEST SELLER - FULL SUPPORT WITH CHARTREUSE & AZURE) -->
-                <div class="bg-gradient-to-b from-[#0055A6] via-[#0F2625] to-[#173433] border-4 border-[#CEFF8A] rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative transform lg:-translate-y-2">
-                    <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-[#CEFF8A] text-[#173433] font-black text-xs px-4 py-2 rounded-2xl uppercase tracking-wider shadow-lg text-center leading-tight whitespace-nowrap">
-                        ⭐ KHUYÊN DÙNG — CÓ GIÁO VIÊN<br>SỬA LỖI 1:1
-                    </div>
-
-                    <div>
-                        <div class="flex justify-between items-center mb-4 mt-3">
-                            <span class="bg-[#CEFF8A]/20 text-[#CEFF8A] text-xs font-extrabold px-3 py-1 rounded-full uppercase border border-[#CEFF8A]/30">Gói 3</span>
-                            <span class="text-xs text-[#CEFF8A] font-bold">Giáo Viên LTN Đồng Hành</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-2">Challenge + Giáo Viên Đồng Hành 1:1</h3>
-                        <p class="text-xs text-slate-200 mb-6">Dành cho con cần được theo sát, nhận xét bài nói & sửa lỗi trực tiếp.</p>
-                        
-                        <div class="mb-6 bg-[#003B73]/80 p-4 rounded-2xl border border-[#CEFF8A]/50 shadow-inner">
-                            <div class="text-4xl sm:text-5xl font-black text-[#CEFF8A] tracking-tight drop-shadow-md mb-2">499.000đ</div>
-                            <div class="text-sm sm:text-base text-slate-200 flex items-center gap-1.5">
-                                <span>Giá gốc:</span>
-                                <span class="line-through font-bold text-slate-200 decoration-red-400 decoration-2 text-base sm:text-lg">1.190.000đ</span>
-                            </div>
-                        </div>
-
-                        <ul class="text-xs text-slate-100 space-y-3 mb-8 border-t border-white/20 pt-6">
-                            <li class="flex items-center gap-2.5">
-                                <span class="text-[#CEFF8A] font-bold text-base">✓</span>
-                                <span><b>Toàn bộ Gói 2</b> (Tài liệu + Video + Audio)</span>
-                            </li>
-                            <li class="flex items-center gap-2.5">
-                                <span class="text-[#CEFF8A] font-bold text-base">✓</span>
-                                <span><b>Thử thách đồng hành 30 ngày rèn kỷ luật cho con</b></span>
-                            </li>
-                            <li class="flex items-center gap-2.5">
-                                <span class="text-[#CEFF8A] font-bold text-base">✓</span>
-                                <span><b>Giáo viên LTN trực tiếp chấm chữa bài 1-1 cho video luyện nói</b></span>
-                            </li>
-                            <li class="flex items-center gap-2.5">
-                                <span class="text-[#CEFF8A] font-bold text-base">✓</span>
-                                <span>Q&A giải đáp thắc mắc bài học hàng ngày</span>
-                            </li>
-                            <li class="flex items-center gap-2.5">
-                                <span class="text-[#CEFF8A] font-bold text-base">✓</span>
-                                <span>Full trọn bộ 5 Quà Tặng Độc Quyền</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <button onclick="openModal('GÓI 3 - GIÁO VIÊN LTN ĐỒNG HÀNH (499K)')" class="w-full bg-[#CEFF8A] hover:bg-[#b8e86b] text-[#173433] font-black py-4 rounded-xl shadow-lg hover:shadow-xl transition-all text-base animate-pulse-subtle">
-                        🔥 Đăng Ký Gói 499K (Con Được Đồng Hành 1:1)
+                    <div class="flex-grow"></div>
+                    <button id="next-btn" onclick="nextQuestion()" disabled class="px-6 py-3 rounded-xl bg-brandBlue text-white text-xs font-black hover:bg-slate-900 disabled:opacity-40 disabled:cursor-not-allowed transition-all flex items-center gap-1.5 shadow-md">
+                        <span>Tiếp tục</span>
+                        <span>→</span>
                     </button>
                 </div>
 
             </div>
+
         </div>
-    </section>
-
-    <!-- BONUSES SECTION -->
-    <section class="py-16 bg-white border-b border-slate-200">
-        <div class="max-w-5xl mx-auto px-4">
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="text-[#0055A6] font-bold text-xs uppercase tracking-wider block mb-2">ĐẶC QUYỀN ĐĂNG KÝ HÔM NAY</span>
-                <div class="inline-block bg-[#CEFF8A] border border-[#b8e86b] text-slate-900 px-5 py-2.5 sm:px-8 sm:py-3 rounded-2xl sm:rounded-full text-base sm:text-3xl font-black mb-3 shadow-sm max-w-full leading-snug">
-                    Bộ 5 Quà Tặng Độc Quyền Cho Bé 8 – 15 Tuổi
-                </div>
-                <p class="text-slate-600 text-sm sm:text-base font-medium">Trị giá hơn 1.500.000đ — Hỗ trợ con luyện nói toàn diện</p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-[#F4FCDA] border border-[#c7e87d] rounded-2xl p-5 flex items-start gap-4">
-                    <span class="text-3xl">📊</span>
-                    <div>
-                        <h4 class="font-bold text-slate-900 text-sm mb-1">Bonus 01: Challenge Tracker 30 Ngày</h4>
-                        <p class="text-xs text-slate-600">Bảng theo dõi tiến độ luyện tập giúp con 8-15t tự giác rèn luyện.</p>
-                    </div>
-                </div>
-
-                <div class="bg-[#F4FCDA] border border-[#c7e87d] rounded-2xl p-5 flex items-start gap-4">
-                    <span class="text-3xl">🛟</span>
-                    <div>
-                        <h4 class="font-bold text-slate-900 text-sm mb-1">Bonus 02: 100 Câu Cứu Nguy</h4>
-                        <p class="text-xs text-slate-600">Các mẫu câu phản xạ nhanh chữa cháy khi con bị khựng từ.</p>
-                    </div>
-                </div>
-
-                <div class="bg-[#F4FCDA] border border-[#c7e87d] rounded-2xl p-5 flex items-start gap-4">
-                    <span class="text-3xl">🎧</span>
-                    <div>
-                        <h4 class="font-bold text-slate-900 text-sm mb-1">Bonus 03: Shadowing Guide & Audio</h4>
-                        <p class="text-xs text-slate-600">Bí kíp nhại giọng phát âm chuẩn bản xứ theo video.</p>
-                    </div>
-                </div>
-
-                <div class="bg-[#F4FCDA] border border-[#c7e87d] rounded-2xl p-5 flex items-start gap-4">
-                    <span class="text-3xl">🚀</span>
-                    <div>
-                        <h4 class="font-bold text-slate-900 text-sm mb-1">Bonus 04: Topic Thuyết Trình Nâng Cao</h4>
-                        <p class="text-xs text-slate-600">Bộ chủ đề mở rộng cho học sinh Tiểu học & THCS.</p>
-                    </div>
-                </div>
-
-                <div class="bg-[#F4FCDA] border border-[#c7e87d] rounded-2xl p-5 flex items-start gap-4">
-                    <span class="text-3xl">👨‍🏫</span>
-                    <div>
-                        <h4 class="font-bold text-slate-900 text-sm mb-1">Bonus 05: Q&A Với Giáo Viên LTN</h4>
-                        <p class="text-xs text-slate-600">Giải đáp thắc mắc & hỗ trợ bài nói cho con trong suốt thử thách.</p>
-                    </div>
-                </div>
-
-                <div class="bg-[#173433] text-white border border-[#0F2625] rounded-2xl p-5 flex items-start gap-4">
-                    <span class="text-3xl">🎁</span>
-                    <div>
-                        <h4 class="font-bold text-[#CEFF8A] text-sm mb-1">Cập Nhật Bài Học Trọn Đời</h4>
-                        <p class="text-xs text-slate-100">Tự động nhận các bộ mẫu câu chủ đề bổ sung miễn phí từ LTN.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ ACCORDION SECTION -->
-    <section class="py-16 bg-slate-50">
-        <div class="max-w-4xl mx-auto px-4">
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 text-center mb-10">
-                Câu Hỏi Thường Gặp (FAQ)
-            </h2>
-
-            <div class="space-y-4">
-                <!-- FAQ 1 -->
-                <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
-                    <button onclick="toggleFaq('faq1')" class="w-full px-6 py-4 text-left font-bold text-slate-900 flex justify-between items-center text-sm sm:text-base">
-                        <span>Bộ tài liệu này phù hợp cho độ tuổi nào?</span>
-                        <span id="faq1-icon" class="text-[#0055A6] font-extrabold text-xl">+</span>
-                    </button>
-                    <div id="faq1" class="hidden px-6 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-                        Bộ tài liệu & thử thách được thiết kế tối ưu cho học sinh từ <b>8 đến 15 tuổi</b> (Tiểu học & THCS) đã học từ vựng cơ bản ở trường nhưng ngại mở miệng giao tiếp.
-                    </div>
-                </div>
-
-                <!-- FAQ 2 -->
-                <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
-                    <button onclick="toggleFaq('faq2')" class="w-full px-6 py-4 text-left font-bold text-slate-900 flex justify-between items-center text-sm sm:text-base">
-                        <span>Ba mẹ không giỏi tiếng Anh thì con có tự học được không?</span>
-                        <span id="faq2-icon" class="text-[#0055A6] font-extrabold text-xl">+</span>
-                    </button>
-                    <div id="faq2" class="hidden px-6 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-                        Hoàn toàn được! Tất cả kịch bản đều là mẫu câu chuẩn có sẵn, kèm video nghe mẫu phát âm. Đặc biệt với gói L3, đội ngũ giáo viên LTN sẽ trực tiếp đồng hành sửa lỗi phát âm 1:1 cho con.
-                    </div>
-                </div>
-
-                <!-- FAQ 3 -->
-                <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
-                    <button onclick="toggleFaq('faq3')" class="w-full px-6 py-4 text-left font-bold text-slate-900 flex justify-between items-center text-sm sm:text-base">
-                        <span>Nên chọn gói 99K, 299K hay 499K cho con?</span>
-                        <span id="faq3-icon" class="text-[#0055A6] font-extrabold text-xl">+</span>
-                    </button>
-                    <div id="faq3" class="hidden px-6 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-                        • <b>Gói 99K:</b> Bộ mẫu câu tự học cho bé tự giác.<br>
-                        • <b>Gói 299K:</b> Bộ mẫu câu + Video phát âm chuẩn để con nhại theo.<br>
-                        • <b>Gói 499K (Khuyên dùng):</b> Có thêm đội ngũ giáo viên LTN đồng hành rèn kỷ luật & chấm sửa bài nói 1:1 cho con.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </main>
 
     <!-- FOOTER -->
-    <footer class="bg-[#0F2625] text-slate-300 py-12 border-t border-slate-800 text-xs">
-        <div class="max-w-5xl mx-auto px-4 text-center">
-            <img src="logo.png" alt="Learning - Tutoring - Nurturing" class="h-16 w-auto mx-auto mb-3 object-contain">
-            <h3 class="font-extrabold text-lg text-[#CEFF8A] mb-4">Learning - Tutoring - Nurturing</h3>
-            
-            <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-slate-200 my-4 text-xs font-semibold">
-                <span>📞 Hotline: <a href="tel:0334782611" class="text-[#CEFF8A] hover:underline font-bold">033 478 2611</a></span>
-                <span>✉️ Email: <a href="mailto:ngoaingu.ltn@gmail.com" class="text-[#CEFF8A] hover:underline font-bold">ngoaingu.ltn@gmail.com</a></span>
-            </div>
-
-            <div class="flex items-center justify-center gap-4 text-slate-300 mb-6">
-                <a href="http://bit.ly/ngoaingultn" target="_blank" class="hover:text-[#CEFF8A] transition-colors bg-[#173433] px-3 py-1.5 rounded-lg border border-slate-700 flex items-center gap-1.5">
-                    <span>📘 Fanpage:</span> <span class="text-white font-medium">bit.ly/ngoaingultn</span>
-                </a>
-                <a href="http://bit.ly/ltnyoutube" target="_blank" class="hover:text-[#CEFF8A] transition-colors bg-[#173433] px-3 py-1.5 rounded-lg border border-slate-700 flex items-center gap-1.5">
-                    <span>▶️ Youtube:</span> <span class="text-white font-medium">bit.ly/ltnyoutube</span>
-                </a>
-            </div>
-
-            <p class="text-slate-400 text-xs">Bản quyền © 2026 Learning - Tutoring - Nurturing. Mọi quyền được bảo lưu.</p>
-        </div>
+    <footer class="bg-white border-t border-slate-200 py-4 px-4 text-center text-xs font-medium text-slate-400">
+        © 2026 Learning - Tutoring - Nurturing (LTN). All rights reserved.
     </footer>
 
-    <!-- ORDER MODAL -->
-    <div id="orderModal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-md w-full p-6 relative shadow-2xl">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-2xl font-bold">&times;</button>
-            
-            <div class="text-center mb-6">
-                <span class="bg-[#CEFF8A] text-[#173433] font-bold text-xs px-3 py-1 rounded-full uppercase">Learning - Tutoring - Nurturing - Đăng Ký Cho Con</span>
-                <h3 id="modalPackageTitle" class="text-xl font-extrabold text-slate-900 mt-2">Gói L3 - GIÁO VIÊN LTN ĐỒNG HÀNH (499K)</h3>
-                <p class="text-xs text-slate-500 mt-1">Vui lòng điền thông tin để kích hoạt tài liệu & nhóm đồng hành cho con qua Zalo: 033 478 2611</p>
-            </div>
-
-            <form onsubmit="handleFormSubmit(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 mb-1">Họ và Tên Ba/Mẹ *</label>
-                    <input type="text" required placeholder="Ví dụ: Nguyễn Văn A" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-[#0055A6] focus:outline-none">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 mb-1">Họ tên & Độ tuổi của Con *</label>
-                    <input type="text" required placeholder="Ví dụ: Bé Minh (10 tuổi)" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-[#0055A6] focus:outline-none">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 mb-1">Số Điện Thoại / Zalo *</label>
-                    <input type="tel" required placeholder="Ví dụ: 0912345678" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-[#0055A6] focus:outline-none">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 mb-1">Địa chỉ Email nhận tài liệu *</label>
-                    <input type="email" required placeholder="name@gmail.com" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-[#0055A6] focus:outline-none">
-                </div>
-
-                <div class="bg-[#F4FCDA] p-3 rounded-xl text-xs text-[#173433] font-semibold border border-[#c7e87d]">
-                    🔒 Thông tin được bảo mật bởi Learning - Tutoring - Nurturing.
-                </div>
-
-                <button type="submit" class="w-full bg-[#0055A6] hover:bg-[#173433] text-[#CEFF8A] font-black py-4 rounded-xl shadow-lg transition-all text-base">
-                    ✅ XÁC NHẬN ĐĂNG KÝ CHO CON
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- JAVASCRIPT FOR INTERACTIVITY -->
+    <!-- QUIZ JAVASCRIPT LOGIC -->
     <script>
-        function toggleFaq(id) {
-            const el = document.getElementById(id);
-            const icon = document.getElementById(id + '-icon');
-            if (el.classList.contains('hidden')) {
-                el.classList.remove('hidden');
-                icon.textContent = '−';
+        const TARGET_SALEPAGE = 'https://huynhthubmt2023-spec.github.io/LTN/'; 
+
+        const questions = [
+            {
+                id: 1,
+                title: "Con đang học lớp mấy?",
+                sub: "Câu hỏi này giúp lựa chọn chủ đề phù hợp với độ tuổi, không quyết định hoàn toàn Level của con.",
+                type: "grid",
+                options: [
+                    { label: "Lớp 2", value: "Lớp 2", score: 1 },
+                    { label: "Lớp 3", value: "Lớp 3", score: 1 },
+                    { label: "Lớp 4", value: "Lớp 4", score: 2 },
+                    { label: "Lớp 5", value: "Lớp 5", score: 2 },
+                    { label: "Lớp 6", value: "Lớp 6", score: 3 },
+                    { label: "Lớp 7", value: "Lớp 7", score: 3 },
+                    { label: "Lớp 8", value: "Lớp 8", score: 4 },
+                    { label: "Lớp 9", value: "Lớp 9", score: 4 }
+                ]
+            },
+            {
+                id: 2,
+                title: "Khi nói về một chủ đề quen thuộc, khả năng hiện tại của con gần nhất với mô tả nào?",
+                sub: "Chọn một phương án gần nhất với biểu hiện hiện tại của con.",
+                type: "list",
+                options: [
+                    { label: "Con chủ yếu nói được từ, cụm từ hoặc một vài câu rất ngắn khi có người hướng dẫn.", score: 1 },
+                    { label: "Con có thể nói khoảng 5–7 câu đơn giản khi có sẵn từ vựng và bài mẫu.", score: 2 },
+                    { label: "Con có thể nói khoảng 8–12 câu liên kết, biết bổ sung lý do hoặc một ví dụ.", score: 3 },
+                    { label: "Con có thể trình bày từ 2–3 phút, nêu quan điểm và phát triển nội dung tương đối độc lập.", score: 4 }
+                ]
+            },
+            {
+                id: 3,
+                title: "Dạng tài liệu nào sẽ giúp con xây dựng bài nói phù hợp nhất?",
+                sub: "Chọn kiểu hỗ trợ con có thể sử dụng hiệu quả nhất khi tự luyện.",
+                type: "list",
+                options: [
+                    { label: "Bài mẫu song ngữ từng câu, câu ngắn và có cấu trúc đơn giản để con dễ hiểu và luyện theo.", score: 1 },
+                    { label: "Bài mẫu đầy đủ, có bố cục rõ ràng để con ghi nhớ và thay đổi một số thông tin theo bản thân.", score: 2 },
+                    { label: "Bài mẫu kết hợp từ vựng và câu hỏi gợi mở để con bổ sung lý do, ví dụ và phát triển thêm ý.", score: 3 },
+                    { label: "Bài mẫu hoàn toàn bằng tiếng Anh, có câu mở đầu thu hút, quan điểm, lập luận và kết luận rõ ràng.", score: 4 }
+                ]
+            },
+            {
+                id: 4,
+                title: "Khi sử dụng một bài nói mẫu, con thường luyện tập ở mức nào?",
+                sub: "Chọn cách con thường làm được với một bài nói đã chuẩn bị sẵn.",
+                type: "list",
+                options: [
+                    { label: "Con cần đọc, nghe và nhắc lại từng câu theo đúng nội dung có sẵn.", score: 1 },
+                    { label: "Con có thể nói theo toàn bộ bài mẫu và thay đổi tên, sở thích hoặc trải nghiệm cá nhân.", score: 2 },
+                    { label: "Sau khi tham khảo bài mẫu, con có thể dựa vào từ khóa hoặc dàn ý để trình bày theo cách của mình.", score: 3 },
+                    { label: "Con chỉ cần chủ đề và các ý chính; bài mẫu được sử dụng để mở rộng vốn từ, cách lập luận và cách diễn đạt.", score: 4 }
+                ]
+            },
+            {
+                id: 5,
+                title: "Khi tự luyện một bài nói tại nhà, biểu hiện của con gần nhất với phương án nào?",
+                sub: "Hãy chọn theo khả năng con duy trì bài nói khi luyện tập một mình.",
+                type: "list",
+                options: [
+                    { label: "Con thường dừng lại để nhớ từ, ghép câu và cần nghe mẫu từng câu để nói theo.", score: 1 },
+                    { label: "Con nói được các câu đơn giản nhưng còn chậm; cần luyện lặp lại nhiều lần để nói rõ và liền mạch hơn.", score: 2 },
+                    { label: "Con có thể tự luyện và ghi hình một bài nói khoảng 1–2 phút, nhưng vẫn cần bài mẫu hoặc dàn ý hỗ trợ.", score: 3 },
+                    { label: "Con có thể tự luyện bài nói từ 2–3 phút và tập trung nhiều hơn vào ngữ điệu, cảm xúc và kỹ năng trình bày.", score: 4 }
+                ]
+            }
+        ];
+
+        let currentStep = 0;
+        let answers = {};
+
+        function renderQuestion() {
+            const q = questions[currentStep];
+            document.getElementById('step-indicator').innerText = `Câu ${q.id}/5`;
+            document.getElementById('progress-bar').style.width = `${(q.id / 5) * 100}%`;
+            document.getElementById('prev-btn').classList.toggle('hidden', currentStep === 0);
+
+            const quizBox = document.getElementById('quiz-box');
+            let html = `
+                <h2 class="text-xl sm:text-2xl font-black text-slate-900 mb-2 leading-snug">${q.title}</h2>
+                <p class="text-xs sm:text-sm text-slate-500 mb-6 leading-relaxed font-medium">${q.sub}</p>
+            `;
+
+            if (q.type === 'grid') {
+                html += `<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">`;
+                q.options.forEach((opt, idx) => {
+                    const isSelected = answers[q.id] && answers[q.id].value === opt.value;
+                    html += `
+                        <button onclick="selectOption(${q.id}, ${idx})" class="option-card p-4 rounded-xl border-2 text-center transition-all ${isSelected ? 'selected font-extrabold border-brandBlue text-brandBlue bg-blue-50 ring-2 ring-blue-500' : 'border-slate-200 text-slate-700 font-bold bg-white'}">
+                            <span class="text-base">${opt.label}</span>
+                        </button>
+                    `;
+                });
+                html += `</div>`;
             } else {
-                el.classList.add('hidden');
-                icon.textContent = '+';
+                html += `<div class="space-y-3 mb-4">`;
+                q.options.forEach((opt, idx) => {
+                    const isSelected = answers[q.id] && answers[q.id].score === opt.score;
+                    html += `
+                        <button onclick="selectOption(${q.id}, ${idx})" class="option-card w-full p-4 rounded-xl border-2 text-left transition-all flex items-start gap-3 ${isSelected ? 'selected border-brandBlue bg-blue-50 ring-2 ring-blue-500' : 'border-slate-200 bg-white'}">
+                            <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center mt-0.5 flex-shrink-0 ${isSelected ? 'border-brandBlue bg-brandBlue' : 'border-slate-300'}">
+                                ${isSelected ? '<div class="w-2 h-2 rounded-full bg-white"></div>' : ''}
+                            </div>
+                            <span class="text-xs sm:text-sm font-semibold text-slate-800 leading-relaxed">${opt.label}</span>
+                        </button>
+                    `;
+                });
+                html += `</div>`;
+            }
+
+            quizBox.innerHTML = html;
+            updateNextButton();
+        }
+
+        function selectOption(qId, optIdx) {
+            const q = questions[currentStep];
+            answers[qId] = q.options[optIdx];
+            renderQuestion();
+        }
+
+        function updateNextButton() {
+            const nextBtn = document.getElementById('next-btn');
+            const hasAnswer = !!answers[questions[currentStep].id];
+            nextBtn.disabled = !hasAnswer;
+
+            if (currentStep === questions.length - 1) {
+                nextBtn.innerHTML = `<span>Xem Kết Quả</span><span>→</span>`;
+            } else {
+                nextBtn.innerHTML = `<span>Tiếp tục</span><span>→</span>`;
             }
         }
 
-        function openModal(packageName) {
-            document.getElementById('modalPackageTitle').textContent = 'Đăng Ký: ' + packageName;
-            document.getElementById('orderModal').classList.remove('hidden');
+        function nextQuestion() {
+            if (currentStep < questions.length - 1) {
+                currentStep++;
+                renderQuestion();
+            } else {
+                showLeadForm();
+            }
         }
 
-        function closeModal() {
-            document.getElementById('orderModal').classList.add('hidden');
+        function prevQuestion() {
+            if (currentStep > 0) {
+                currentStep--;
+                renderQuestion();
+            }
         }
 
-        function handleFormSubmit(e) {
+        function showLeadForm() {
+            document.getElementById('quiz-box').classList.add('hidden');
+            document.getElementById('nav-buttons').classList.add('hidden');
+            document.getElementById('lead-box').classList.remove('hidden');
+            document.getElementById('step-indicator').innerText = `HOÀN THÀNH 5/5`;
+            document.getElementById('progress-bar').style.width = `100%`;
+        }
+
+        function calculateLevel() {
+            let total = 0;
+            for (let i = 2; i <= 5; i++) {
+                if (answers[i]) {
+                    total += answers[i].score;
+                }
+            }
+            if (total <= 6) return 1;
+            if (total <= 10) return 2;
+            if (total <= 14) return 3;
+            return 4;
+        }
+
+        function submitForm(e) {
             e.preventDefault();
-            alert('🎉 Cảm ơn Ba/Mẹ đã đăng ký cho con với Learning - Tutoring - Nurturing! Giáo viên LTN sẽ liên hệ qua Zalo/SĐT 033 478 2611 để kích hoạt bộ tài liệu & nhóm đồng hành.');
-            closeModal();
+            const name = document.getElementById('parent-name').value.trim();
+            const phone = document.getElementById('parent-phone').value.trim();
+            const classVal = answers[1] ? answers[1].value : '';
+            const level = calculateLevel();
+
+            const targetUrl = `${TARGET_SALEPAGE}?level=${level}&name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&class=${encodeURIComponent(classVal)}`;
+            window.location.href = targetUrl;
         }
+
+        function resetQuiz() {
+            currentStep = 0;
+            answers = {};
+            document.getElementById('quiz-box').classList.remove('hidden');
+            document.getElementById('nav-buttons').classList.remove('hidden');
+            document.getElementById('lead-box').classList.add('hidden');
+            renderQuestion();
+        }
+
+        renderQuestion();
     </script>
-
-    <!-- DESKTOP FLOATING ZALO BUTTON -->
-    <a href="https://zalo.me/g/pajxunxu4bsamvzmowso" target="_blank" class="hidden sm:flex fixed bottom-6 right-6 z-50 bg-[#0068FF] hover:bg-[#0052cc] text-[#ffffff] font-black p-3.5 sm:px-5 sm:py-3.5 rounded-full shadow-2xl items-center gap-2.5 transition-all transform hover:scale-105 border-2 border-white animate-bounce">
-        <span class="w-7 h-7 rounded-full bg-white text-[#0068FF] font-black flex items-center justify-center text-xs shadow">Z</span>
-        <span class="text-sm font-extrabold tracking-tight">Vào Nhóm Zalo Free</span>
-    </a>
-
-    <!-- MOBILE DEDICATED STICKY BOTTOM BAR (SMARTPHONES ONLY) -->
-    <div class="fixed bottom-0 left-0 right-0 z-50 sm:hidden bg-[#0F2625]/95 backdrop-blur-md px-3 py-2 border-t border-slate-800 flex items-center justify-between gap-2 shadow-2xl">
-        <a href="https://zalo.me/g/pajxunxu4bsamvzmowso" target="_blank" class="flex-1 bg-[#0068FF] hover:bg-[#0052cc] text-white font-extrabold text-xs py-3 px-2 rounded-xl flex items-center justify-center gap-1.5 shadow-md">
-            <span class="w-5 h-5 rounded-full bg-white text-[#0068FF] font-black flex items-center justify-center text-[10px]">Z</span>
-            <span>💬 Nhóm Zalo Free</span>
-        </a>
-        <a href="#pricing" class="flex-1 bg-[#0055A6] hover:bg-[#173433] text-[#CEFF8A] font-black text-xs py-3 px-2 rounded-xl flex items-center justify-center gap-1 shadow-md animate-pulse-subtle">
-            <span>🚀 Đăng Ký Từ 99K</span>
-        </a>
-    </div>
 </body>
 </html>
