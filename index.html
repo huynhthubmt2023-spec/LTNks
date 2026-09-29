@@ -320,8 +320,28 @@
             const classVal = answers[1] ? answers[1].value : '';
             const level = calculateLevel();
 
+            const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbzpl5uABGIJLXDkOtDRV4fPmDmOFuwjNwLyBUKF9gcRII7b6UkuY2scrD7euUckbE6sZw/exec';
             const targetUrl = `${TARGET_SALEPAGE}?level=${level}&name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&class=${encodeURIComponent(classVal)}`;
-            window.location.href = targetUrl;
+
+            // Tự động lưu Lead khảo sát vào Google Sheet
+            try {
+                fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        type: 'lead',
+                        name: name,
+                        phone: phone,
+                        classVal: classVal,
+                        level: `Level ${level}`
+                    })
+                }).finally(() => {
+                    window.location.href = targetUrl;
+                });
+            } catch (err) {
+                window.location.href = targetUrl;
+            }
         }
 
         function resetQuiz() {
